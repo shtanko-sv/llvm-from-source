@@ -54,7 +54,7 @@ def build_llvm(source_dir, generator=None, build_dir=None, install_prefix=None):
             cmake_cmd_line += ["-G", generator]
 
         if install_prefix:
-            cmake_cmd_line = [f"-DCMAKE_INSTALL_PREFIX={install_prefix}"]
+            cmake_cmd_line.append(f"-DCMAKE_INSTALL_PREFIX={install_prefix}")
 
         cmake_cmd_line.append(os.path.join(source_dir, "llvm"))
 
