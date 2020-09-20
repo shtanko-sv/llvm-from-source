@@ -44,7 +44,7 @@ def build_llvm(source_dir, generator=None, build_dir=None, install_prefix=None):
                 yield os.path.expanduser(build_dir)
         finally:
             if tmp_dir:
-                shutil.rmtree(tmp_dir.name)
+                tmp_dir.cleanup()
 
     with build_directory() as build_dir, cd(build_dir):
         cmake_executable = which("cmake")
