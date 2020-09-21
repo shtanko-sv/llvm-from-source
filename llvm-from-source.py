@@ -6,7 +6,6 @@ import os
 import subprocess
 import logging
 import argparse
-import shutil
 
 
 def log(level, msg):
@@ -95,4 +94,4 @@ if __name__ == "__main__":
     with tempfile.TemporaryDirectory() as wd, cd(wd):
         log(logging.INFO, f"Use {wd} as temporary directory")
         build_llvm(
-            os.path.expanduser(args.sources) if args.sources else download_llvm(), args.generator, args.build_dir)
+            os.path.expanduser(args.sources) if args.sources else download_llvm(), args.generator, args.build_dir, args.prefix)
