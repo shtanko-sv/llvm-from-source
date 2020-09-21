@@ -48,7 +48,7 @@ def build_llvm(source_dir, generator=None, build_dir=None, install_prefix=None):
     with build_directory() as build_dir, cd(build_dir):
         cmake_executable = which("cmake")
         cmake_cmd_line = [cmake_executable, "-DCMAKE_BUILD_TYPE=Release", "-DLLVM_TARGETS_TO_BUILD=X86",
-                          "-DLLVM_ENABLE_PROJECTS='clang;libcxx;libcxxabi;libunwind;lldb;compiler-rt;lld;polly'"]
+                          "-DLLVM_ENABLE_PROJECTS='clang;clang-tools-extra;libcxx;libcxxabi;libunwind;lldb;compiler-rt;lld;polly'"]
         if generator:
             cmake_cmd_line += ["-G", generator]
 
