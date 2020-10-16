@@ -40,7 +40,10 @@ def build_llvm(source_dir, generator=None, build_dir=None, install_prefix=None):
                 tmp_dir = tempfile.TemporaryDirectory()
                 yield tmp_dir.name
             else:
-                yield os.path.expanduser(build_dir)
+                result = os.path.expanduser(build_dir)
+                if not os.path.exists(result):
+                    os.makedirs(result)
+                yield result
         finally:
             if tmp_dir:
                 tmp_dir.cleanup()
